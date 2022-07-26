@@ -17,7 +17,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/sagernet/cronet-go"
+	"github.com/2qif49lt/cronet-go"
 	"github.com/sagernet/sing-tools/extensions/log"
 	"github.com/sagernet/sing/common"
 	"github.com/sagernet/sing/common/buf"

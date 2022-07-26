@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/sagernet/cronet-go"
+	"github.com/2qif49lt/cronet-go"
 )
 
 func TestTransport(t *testing.T) {

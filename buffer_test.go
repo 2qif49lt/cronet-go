@@ -5,7 +5,7 @@ import (
 	"sync"
 	"testing"
 
-	"github.com/sagernet/cronet-go"
+	"github.com/2qif49lt/cronet-go"
 	"github.com/sagernet/sing/common/buf"
 	"github.com/sagernet/sing/common/random"
 )
