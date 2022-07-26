@@ -2,6 +2,7 @@ package cronet
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"net"
 	"net/http"
@@ -19,6 +20,8 @@ type RoundTripper struct {
 
 	closeEngine   bool
 	closeExecutor bool
+
+	Proxy string
 }
 
 func (t *RoundTripper) close() {
@@ -39,6 +42,9 @@ func (t *RoundTripper) RoundTrip(request *http.Request) (*http.Response, error) 
 		engineParams.SetEnableQuic(true)
 		engineParams.SetEnableBrotli(true)
 		engineParams.SetUserAgent("Go-http-client/1.1")
+		if t.Proxy != "" {
+			engineParams.SetExperimentalOptions(fmt.Sprintf(`{"proxy_server": "%s"}`, t.Proxy))
+		}
 		t.Engine = NewEngine()
 		t.Engine.StartWithParams(engineParams)
 		engineParams.Destroy()
