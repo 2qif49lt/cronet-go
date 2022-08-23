@@ -149,6 +149,7 @@ func (r *urlResponse) OnRedirectReceived(self URLRequestCallback, request URLReq
 			header := info.HeaderAt(i)
 			r.response.Header.Set(header.Name(), header.Value())
 		}
+		r.response.Body = io.NopCloser(io.MultiReader())
 		r.wg.Done()
 		return
 	}
