@@ -38,7 +38,7 @@ func (t *RoundTripper) RoundTrip(request *http.Request) (*http.Response, error) 
 	var emptyEngine Engine
 	if t.Engine == emptyEngine {
 		engineParams := NewEngineParams()
-		engineParams.SetEnableHTTP2(true)
+		engineParams.SetEnableHTTP2(false)
 		engineParams.SetEnableQuic(true)
 		engineParams.SetEnableBrotli(true)
 		engineParams.SetUserAgent("Go-http-client/1.1")
